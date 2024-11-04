@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: flask-service
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: DB_PATH
+        value: "/app/scl/dados/Elbrus.IB"
+      - key: DB_PATH2
+        value: "/app/scl/dados/ELBRUS.IB"
+      - key: USER
+        value: "sysdba"
+      - key: PASSWORD
+        value: "masterkey"
